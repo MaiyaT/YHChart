@@ -16,6 +16,14 @@ CGFloat YHPointDist(CGPoint point1, CGPoint point2){
 }
 
 
+BOOL YHIsBarChart(YHChartShowType type){
+    if(type == YHChartShowType_Bar ||
+       type == YHChartShowType_BarCombine){
+        return YES;
+    }
+    return NO;
+}
+
 
 @implementation YHLineConstants
 

@@ -203,6 +203,10 @@
                         CGFloat tx = [YHAxisConvert convertValueXToPoint:axisElementX
                                                                axisWidth:CGRectGetWidth(self.renderView.frame)
                                                                   valueX:distence];
+                        if(YHIsBarChart(self.lineItem.showType)){
+                            tx = tx + self.lineItem.barScaleTotalWidth*0.5;
+                        }
+                        
                         [UIView animateWithDuration:0.1 animations:^{
                             self.lineLayer.transform = CATransform3DMakeTranslation(-tx, 0, 0);
                         }];
@@ -277,8 +281,7 @@
     
     CGPoint p = [self getPointAtPanelByValuePoint:CGPointMake(point.valueX, point.valueY)];
     
-    if(self.lineItem.showType == YHChartShowType_Bar ||
-       self.lineItem.showType == YHChartShowType_BarCombine){
+    if(YHIsBarChart(self.lineItem.showType)){
 
         if(self.lineItem.axisType == YHAxisTypeHorizontal){
             
@@ -623,8 +626,7 @@
     CGFloat radius = (self.lineItem.pointPicker.radius == 0)?1:self.lineItem.pointPicker.radius;
     
     UIBezierPath * path;
-    if(nearestLine.showType == YHChartShowType_Bar ||
-       nearestLine.showType == YHChartShowType_BarCombine){
+    if(YHIsBarChart(nearestLine.showType)){
         //视图高度
         if(self.lineItem.pointPicker.barSelectSingle){
             path = [UIBezierPath bezierPathWithRect:CGRectMake(p.x- radius*0.5 + nearestLine.barCenterToScaleOffset, 0, radius, CGRectGetHeight(self.renderView.frame))];

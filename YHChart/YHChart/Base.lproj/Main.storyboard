@@ -16,41 +16,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="yug-iw-YAf"/>
+                        <segue destination="s4J-3k-jLk" kind="relationship" relationship="rootViewController" id="fen-fL-2oO"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m9O-wy-rZB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-667" y="139"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ruO-5J-Ane">
-                                <rect key="frame" x="177.5" y="433" width="59" height="30"/>
-                                <state key="normal" title="YHChart"/>
-                                <connections>
-                                    <segue destination="s4J-3k-jLk" kind="push" id="8zA-NU-VL9"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="ruO-5J-Ane" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="huu-gw-zda"/>
-                            <constraint firstItem="ruO-5J-Ane" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="rxg-CA-C19"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="aFl-7N-a8g"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="141" y="139"/>
         </scene>
         <!--Charts De Bug View Controller-->
         <scene sceneID="Zsx-aM-dyV">
@@ -66,7 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UK7-E6-nyI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="835" y="139"/>
+            <point key="canvasLocation" x="88" y="139"/>
         </scene>
     </scenes>
 </document>

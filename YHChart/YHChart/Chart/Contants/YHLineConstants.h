@@ -59,6 +59,7 @@ typedef NS_ENUM(NSUInteger, YHChartShowType) {
     YHChartShowType_BarCombine,//柱状图合并成一条柱子
 };
 
+BOOL YHIsBarChart(YHChartShowType type);
 
 /// 坐标轴刻度类型
 typedef NS_ENUM(NSInteger, YHAxisScaleType) {
@@ -79,6 +80,8 @@ CGFloat YHPointDist(CGPoint point1, CGPoint point2);
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YHLineConstants : NSObject
+
+
 
 @end
 

@@ -83,6 +83,13 @@
     return 0;
 }
 
+-(CGFloat)barScaleTotalWidth{
+    if(_barScaleTotalWidth != 0){
+        return _barScaleTotalWidth;
+    }
+    return self.lineWidth;
+}
+
 - (void)updateLineReferenceAxisXDirection:(YHChartAxisDirection)axisXDirection axisYDirection:(YHChartAxisDirection)axisYDirection{
     
     self.axisXDirection = axisXDirection;
