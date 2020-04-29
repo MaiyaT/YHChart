@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="-667" y="139"/>
         </scene>
-        <!--Charts De Bug View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="Zsx-aM-dyV">
             <objects>
-                <viewController id="s4J-3k-jLk" customClass="YHChartsDeBugViewController" sceneMemberID="viewController">
+                <viewController id="s4J-3k-jLk" customClass="YHHomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bkj-Er-3Zh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

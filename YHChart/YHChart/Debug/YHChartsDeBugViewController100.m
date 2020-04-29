@@ -6,27 +6,14 @@
 //  Copyright © 2020 林宁宁. All rights reserved.
 //
 
-#import "YHChartsDeBugViewController.h"
+#import "YHChartsDeBugViewController100.h"
 
-#import "YHLineChartView.h"
-#import "YHLineChartView+Refline.h"
-#import "YHLineChartView+BarGraph.h"
 
-#import "YHPointToastView.h"
-
-#import "NSMutableAttributedString+YH.h"
-
-#import "YHCountDownTool.h"
-
-#import "YHDebugMenu.h"
-
-#import "YHKit.h"
-
-@interface YHChartsDeBugViewController ()
+@interface YHChartsDeBugViewController100 ()
 
 @end
 
-@implementation YHChartsDeBugViewController
+@implementation YHChartsDeBugViewController100
 
 
 - (void)viewDidLoad {
@@ -1972,23 +1959,6 @@
     return contentView;
     
 }
-
-
-NSMutableAttributedString * YHVTitle(NSString * title){
-    NSMutableAttributedString * attTitle = [NSMutableAttributedString yh_initWithStr:title customBlock:^(NSMutableAttributedString *att) {
-        [att yh_font:[UIFont yh_pfOfSize:12]];
-        [att yh_color:[UIColor yh_colorWithHexString:@"#8C9AA8"]];
-    }];
-    return attTitle;
-}
-NSMutableAttributedString * YHHTitle(NSString * title){
-    NSMutableAttributedString * attTitle = [NSMutableAttributedString yh_initWithStr:title customBlock:^(NSMutableAttributedString *att) {
-        [att yh_font:[UIFont yh_pfOfSize:12]];
-        [att yh_color:[UIColor yh_colorWithHexString:@"#1E2439"]];
-    }];
-    return attTitle;
-}
-
 
 /*
 #pragma mark - Navigation

@@ -1,8 +1,8 @@
 //
-//  YHChartsDeBugViewController.h
+//  YHHomeViewController.h
 //  YHChart
 //
-//  Created by 林宁宁 on 2020/4/27.
+//  Created by 林宁宁 on 2020/4/29.
 //  Copyright © 2020 林宁宁. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YHChartsDeBugViewController : UIViewController
+@interface YHHomeViewController : UIViewController
 
 @end
 
