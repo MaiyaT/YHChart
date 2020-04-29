@@ -118,7 +118,7 @@
     [self.dataList addObject:item];
     
     item = [YHCellItem new];
-    item.title = @"折线图坐标轴-2";
+    item.title = @"折线图坐标轴-2-自动设置坐标轴";
     [item setClickBlock:^(__kindof YHCellItem *passItem) {
         PushBlock(9,passItem.title);
     }];

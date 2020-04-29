@@ -12,11 +12,12 @@
 
 /// 坐标轴位置
 typedef NS_ENUM(NSInteger, YHChartAxisPos) {
-    YHChartAxisPos_Unknow,
-    YHChartAxisPos_Top = 1,
-    YHChartAxisPos_Bottom,
-    YHChartAxisPos_Left,
-    YHChartAxisPos_Right,
+    YHChartAxisPos_Unknow   = 0,
+    YHChartAxisPos_Top      = 1 << 0,
+    YHChartAxisPos_Bottom   = 1 << 1,
+    YHChartAxisPos_Left     = 1 << 2,
+    YHChartAxisPos_Right    = 1 << 3,
+    YHChartAxisPos_All      = (YHChartAxisPos_Top | YHChartAxisPos_Bottom | YHChartAxisPos_Left YHChartAxisPos_Right)
 };
 
 /// 坐标轴方向 布局的方向

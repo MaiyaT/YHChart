@@ -58,88 +58,80 @@
     //当前坐标轴方向
     YHChartAxisDirection dirtX = self.axisInfo.axisDirectionX;
     YHChartAxisDirection dirtY = self.axisInfo.axisDirectionY;
-    
-    //原点坐标的数值
-//    CGPoint originValue = CGPointMake(self.axisInfo.axisInfoX.minValue, self.axisInfo.axisInfoY.minValue);
-//
-    
+        
     YHAxisElementInfo * axisX = self.axisInfo.axisInfoX;
     YHAxisElementInfo * axisY = self.axisInfo.axisInfoY;
     
     YHReflineInfo * info = [YHReflineInfo new];
     
-
-    
     info.isDotted = dot;
     info.lineColor = color;
     info.lineHeight = width;
     
-    switch (position) {
-        case YHChartAxisPos_Top:{
-            info.showVertical = NO;
-            info.showHorizontal = YES;
-            if(dirtX == YHChartAxisDirection_LeftToRight){
-                info.axisXValue = axisX.minValue;
-            }else{
-                info.axisXValue = axisX.maxValue;
-            }
-            if(dirtY == YHChartAxisDirection_TopToBottom){
-                info.axisYValue = axisY.minValue;
-            }else{
-                info.axisYValue = axisY.maxValue;
-            }
+    if(position & YHChartAxisPos_Top){
+        info.showVertical = NO;
+        info.showHorizontal = YES;
+        if(dirtX == YHChartAxisDirection_LeftToRight){
+            info.axisXValue = axisX.minValue;
+        }else{
+            info.axisXValue = axisX.maxValue;
         }
-            break;
-        case YHChartAxisPos_Bottom:{
-            info.showVertical = NO;
-            info.showHorizontal = YES;
-            if(dirtX == YHChartAxisDirection_LeftToRight){
-                info.axisXValue = axisX.minValue;
-            }else{
-                info.axisXValue = axisX.maxValue;
-            }
-            if(dirtY == YHChartAxisDirection_TopToBottom){
-                info.axisYValue = axisY.maxValue;
-            }else{
-                info.axisYValue = axisY.minValue;
-            }
+        if(dirtY == YHChartAxisDirection_TopToBottom){
+            info.axisYValue = axisY.minValue;
+        }else{
+            info.axisYValue = axisY.maxValue;
         }
-            break;
-        case YHChartAxisPos_Left:{
-            info.showVertical = YES;
-            info.showHorizontal = NO;
-            if(dirtX == YHChartAxisDirection_LeftToRight){
-                info.axisXValue = axisX.minValue;
-            }else{
-                info.axisXValue = axisX.maxValue;
-            }
-            if(dirtY == YHChartAxisDirection_TopToBottom){
-                info.axisYValue = axisY.minValue;
-            }else{
-                info.axisYValue = axisY.maxValue;
-            }
-        }
-            break;
-        case YHChartAxisPos_Right:{
-            info.showVertical = YES;
-            info.showHorizontal = NO;
-            if(dirtX == YHChartAxisDirection_LeftToRight){
-                info.axisXValue = axisX.maxValue;
-            }else{
-                info.axisXValue = axisX.minValue;
-            }
-            if(dirtY == YHChartAxisDirection_TopToBottom){
-                info.axisYValue = axisY.minValue;
-            }else{
-                info.axisYValue = axisY.maxValue;
-            }
-        }
-            break;
-        default:
-            break;
+        
+        [self addRefline:info dirtX:dirtX dirtY:dirtY];
     }
     
-    [self addRefline:info dirtX:dirtX dirtY:dirtY];
+    if(position & YHChartAxisPos_Bottom){
+        info.showVertical = NO;
+        info.showHorizontal = YES;
+        if(dirtX == YHChartAxisDirection_LeftToRight){
+            info.axisXValue = axisX.minValue;
+        }else{
+            info.axisXValue = axisX.maxValue;
+        }
+        if(dirtY == YHChartAxisDirection_TopToBottom){
+            info.axisYValue = axisY.maxValue;
+        }else{
+            info.axisYValue = axisY.minValue;
+        }
+        [self addRefline:info dirtX:dirtX dirtY:dirtY];
+    }
+    
+    if(position & YHChartAxisPos_Left){
+        info.showVertical = YES;
+        info.showHorizontal = NO;
+        if(dirtX == YHChartAxisDirection_LeftToRight){
+            info.axisXValue = axisX.minValue;
+        }else{
+            info.axisXValue = axisX.maxValue;
+        }
+        if(dirtY == YHChartAxisDirection_TopToBottom){
+            info.axisYValue = axisY.minValue;
+        }else{
+            info.axisYValue = axisY.maxValue;
+        }
+        [self addRefline:info dirtX:dirtX dirtY:dirtY];
+    }
+    
+    if(position & YHChartAxisPos_Right){
+        info.showVertical = YES;
+        info.showHorizontal = NO;
+        if(dirtX == YHChartAxisDirection_LeftToRight){
+            info.axisXValue = axisX.maxValue;
+        }else{
+            info.axisXValue = axisX.minValue;
+        }
+        if(dirtY == YHChartAxisDirection_TopToBottom){
+            info.axisYValue = axisY.minValue;
+        }else{
+            info.axisYValue = axisY.maxValue;
+        }
+        [self addRefline:info dirtX:dirtX dirtY:dirtY];
+    }
 }
 
 - (void)addReflineConfig:(void(^)(YHReflineInfo * refline))config{
