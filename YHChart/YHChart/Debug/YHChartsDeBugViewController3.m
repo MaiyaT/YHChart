@@ -189,6 +189,13 @@
     
     UIView * contentView = [UIView new];
     [contentView addSubview:chartView3];
+    [self.view addSubview:contentView];
+    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+        make.width.equalTo(self.view).multipliedBy(0.95);
+        make.height.equalTo(self.view).multipliedBy(0.6);
+    }];
+    
     
     [chartView3 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(contentView);
@@ -263,13 +270,6 @@
     ///////////
     YHDebugMenu * lineMenu = [YHDebugMenu new];
     [contentView addSubview:lineMenu];
-    [lineMenu mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(contentView);
-        make.top.equalTo(chartView3.mas_bottom).offset(Adapted(15));
-        make.height.mas_equalTo(Adapted(45));
-        
-        make.bottom.equalTo(contentView).offset(Adapted(-15));
-    }];
     
     [lineMenu addMenu:@"添加线" action:^{
         AddChartLine();
@@ -294,11 +294,11 @@
     
     
     
-    [self.view addSubview:contentView];
-    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.view);
-        make.width.equalTo(self.view).multipliedBy(0.95);
-        make.height.equalTo(self.view).multipliedBy(0.6);
+    
+    [lineMenu mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(contentView);
+        make.top.equalTo(chartView3.mas_bottom).offset(Adapted(15));
+        make.height.mas_equalTo(Adapted(45));
     }];
 }
 

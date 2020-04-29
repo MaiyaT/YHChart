@@ -20,7 +20,14 @@
     
     
     UIView * contentView = [UIView new];
-                
+    [self.view addSubview:contentView];
+    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+        make.width.equalTo(self.view).multipliedBy(0.95);
+        make.height.equalTo(self.view).multipliedBy(0.8);
+    }];
+    
+    
     YHLineChartView * chartView = [YHLineChartView new];
 
     chartView.axisInfo.axisPos(YHChartAxisPos_Left).maxValue = 100;
@@ -92,15 +99,10 @@
         make.right.equalTo(chartView);
         make.top.equalTo(chartView.mas_bottom).offset(Adapted(20));
         make.height.mas_equalTo(Adapted(44));
-        make.bottom.equalTo(contentView).offset(Adapted(-20));
+//        make.bottom.equalTo(contentView).offset(Adapted(-20));
     }];
    
-    [self.view addSubview:contentView];
-    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.view);
-        make.width.equalTo(self.view).multipliedBy(0.95);
-        make.height.equalTo(self.view).multipliedBy(0.8);
-    }];
+    
 }
 
 /*

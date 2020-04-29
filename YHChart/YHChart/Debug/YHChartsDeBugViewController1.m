@@ -21,7 +21,13 @@
     
     
     YHLineChartView * chartView2 = [YHLineChartView new];
-
+    [self.view addSubview:chartView2];
+    [chartView2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+        make.width.equalTo(self.view).multipliedBy(0.9);
+        make.height.mas_equalTo(Adapted(300));
+    }];
+    
     NSMutableArray * scaleList = [NSMutableArray new];
     
     NSArray * list = @[@"7.59",@"7.5",@"7.4",@"7.3",@"7.2",@"7.1",@"7.0"];
@@ -90,12 +96,7 @@
     
     
     
-    [self.view addSubview:chartView2];
-    [chartView2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.view);
-        make.width.equalTo(self.view).multipliedBy(0.9);
-        make.height.mas_equalTo(Adapted(300));
-    }];
+    
 }
 
 /*

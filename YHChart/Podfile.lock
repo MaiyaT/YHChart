@@ -1,20 +1,24 @@
 PODS:
+  - FDFullscreenPopGesture (1.1)
   - Masonry (1.1.0)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
+  - FDFullscreenPopGesture
   - Masonry
   - YYModel
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - FDFullscreenPopGesture
     - Masonry
     - YYModel
 
 SPEC CHECKSUMS:
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: cf658dbe13f1df3b6b8e59d4a8baa2a8be2d8173
+PODFILE CHECKSUM: cd229603840d5fe29856c07734e15ddc90cdff8a
 
 COCOAPODS: 1.9.1

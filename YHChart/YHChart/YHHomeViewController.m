@@ -83,7 +83,7 @@
     [self.dataList addObject:item];
     
     item = [YHCellItem new];
-    item.title = @"折线图坐标轴";
+    item.title = @"折线图坐标轴-1";
     [item setClickBlock:^(__kindof YHCellItem *passItem) {
         PushBlock(4,passItem.title);
     }];
@@ -111,14 +111,40 @@
     [self.dataList addObject:item];
     
     item = [YHCellItem new];
-    item.title = @"折线图平移动画";
+    item.title = @"柱状图平移动画";
     [item setClickBlock:^(__kindof YHCellItem *passItem) {
         PushBlock(8,passItem.title);
     }];
     [self.dataList addObject:item];
     
+    item = [YHCellItem new];
+    item.title = @"折线图坐标轴-2";
+    [item setClickBlock:^(__kindof YHCellItem *passItem) {
+        PushBlock(9,passItem.title);
+    }];
+    [self.dataList addObject:item];
     
     
+    item = [YHCellItem new];
+    item.title = @"折线图横屏展开";
+    [item setClickBlock:^(__kindof YHCellItem *passItem) {
+        
+    }];
+    [self.dataList addObject:item];
+    
+    item = [YHCellItem new];
+    item.title = @"折线图缩放";
+    [item setClickBlock:^(__kindof YHCellItem *passItem) {
+        
+    }];
+    [self.dataList addObject:item];
+    
+    item = [YHCellItem new];
+    item.title = @"饼状图";
+    [item setClickBlock:^(__kindof YHCellItem *passItem) {
+        
+    }];
+    [self.dataList addObject:item];
     
     
     item = [YHCellItem new];

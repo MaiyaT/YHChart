@@ -20,6 +20,13 @@
     
     
     UIView * contentView = [UIView new];
+    [self.view addSubview:contentView];
+    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+        make.width.equalTo(self.view).multipliedBy(0.95);
+        make.height.equalTo(self.view).multipliedBy(0.6);
+    }];
+    
     
     YHLineChartView * chartView = [YHLineChartView new];
     chartView.backgroundColor = [UIColor whiteColor];
@@ -199,7 +206,7 @@
         make.left.right.equalTo(contentView);
         make.height.mas_equalTo(Adapted(45));
         make.top.equalTo(titleV.mas_bottom).offset(Adapted(15));
-        make.bottom.equalTo(contentView).offset(Adapted(-10));
+//        make.bottom.equalTo(contentView).offset(Adapted(-10));
     }];
 
     [timeMenu addMenu:@"五分钟" action:^{
@@ -213,12 +220,7 @@
     }];
     [timeMenu layoutIfNeeded];
     
-    [self.view addSubview:contentView];
-    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.view);
-        make.width.equalTo(self.view).multipliedBy(0.95);
-        make.height.equalTo(self.view).multipliedBy(0.6);
-    }];
+    
 }
 
 /*

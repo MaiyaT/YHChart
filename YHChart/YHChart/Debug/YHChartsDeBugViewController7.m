@@ -21,6 +21,12 @@
     
 
     UIView * contentView = [UIView new];
+    [self.view addSubview:contentView];
+    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+        make.width.equalTo(self.view).multipliedBy(0.95);
+        make.height.equalTo(self.view).multipliedBy(0.8);
+    }];
         
     YHLineChartView * chartView = [YHLineChartView new];
     
@@ -311,7 +317,7 @@
        make.top.equalTo(lineMenu.mas_bottom).offset(Adapted(10));
        make.height.mas_equalTo(Adapted(45));
 
-       make.bottom.equalTo(contentView).offset(Adapted(-10));
+//       make.bottom.equalTo(contentView).offset(Adapted(-10));
    }];
 
    [colorMenu addMenu:@"线条色/阴影色" action:^{
@@ -358,12 +364,7 @@
    [colorMenu layoutIfNeeded];
     
     
-    [self.view addSubview:contentView];
-    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.view);
-        make.width.equalTo(self.view).multipliedBy(0.95);
-        make.height.equalTo(self.view).multipliedBy(0.8);
-    }];
+    
 }
 
 /*

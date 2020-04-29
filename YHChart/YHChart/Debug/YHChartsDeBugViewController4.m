@@ -18,7 +18,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     UIView * contentView = [UIView new];
-        
+    [self.view addSubview:contentView];
+    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+        make.width.equalTo(self.view).multipliedBy(0.95);
+        make.height.equalTo(self.view).multipliedBy(0.8);
+    }];
+
+    
     YHLineChartView * chartView = [YHLineChartView new];
 
     NSMutableArray * scaleList = [NSMutableArray new];
@@ -85,6 +92,7 @@
         make.height.mas_equalTo(Adapted(180));
 
     }];
+    
     
     
     YHDebugMenu * axisMenu = [YHDebugMenu new];
@@ -247,7 +255,6 @@
     }];
 
     [axisWidthMenu layoutIfNeeded];
-    
     
     
     //坐标轴的刻度变化
@@ -524,7 +531,7 @@
         make.left.right.equalTo(contentView);
         make.height.mas_equalTo(Adapted(45));
         make.top.equalTo(axisDeuceMenu.mas_bottom).offset(Adapted(15));
-        make.bottom.equalTo(contentView).offset(Adapted(-10));
+//        make.bottom.equalTo(contentView).offset(Adapted(-10));
     }];
 
     [doubleAxisMenu addMenu:@"单 X 单 Y" action:^{
@@ -543,12 +550,7 @@
     
     
     
-    [self.view addSubview:contentView];
-    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.view);
-        make.width.equalTo(self.view).multipliedBy(0.95);
-        make.height.equalTo(self.view).multipliedBy(0.8);
-    }];
+    
 }
 
 /*
