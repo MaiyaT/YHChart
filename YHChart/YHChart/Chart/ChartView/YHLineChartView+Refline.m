@@ -62,13 +62,13 @@
     YHAxisElementInfo * axisX = self.axisInfo.axisInfoX;
     YHAxisElementInfo * axisY = self.axisInfo.axisInfoY;
     
-    YHReflineInfo * info = [YHReflineInfo new];
-    
-    info.isDotted = dot;
-    info.lineColor = color;
-    info.lineHeight = width;
     
     if(position & YHChartAxisPos_Top){
+        YHReflineInfo * info = [YHReflineInfo new];
+        info.isDotted = dot;
+        info.lineColor = color;
+        info.lineHeight = width;
+        
         info.showVertical = NO;
         info.showHorizontal = YES;
         if(dirtX == YHChartAxisDirection_LeftToRight){
@@ -86,6 +86,11 @@
     }
     
     if(position & YHChartAxisPos_Bottom){
+        YHReflineInfo * info = [YHReflineInfo new];
+        info.isDotted = dot;
+        info.lineColor = color;
+        info.lineHeight = width;
+        
         info.showVertical = NO;
         info.showHorizontal = YES;
         if(dirtX == YHChartAxisDirection_LeftToRight){
@@ -102,6 +107,11 @@
     }
     
     if(position & YHChartAxisPos_Left){
+        YHReflineInfo * info = [YHReflineInfo new];
+        info.isDotted = dot;
+        info.lineColor = color;
+        info.lineHeight = width;
+        
         info.showVertical = YES;
         info.showHorizontal = NO;
         if(dirtX == YHChartAxisDirection_LeftToRight){
@@ -118,6 +128,11 @@
     }
     
     if(position & YHChartAxisPos_Right){
+        YHReflineInfo * info = [YHReflineInfo new];
+        info.isDotted = dot;
+        info.lineColor = color;
+        info.lineHeight = width;
+        
         info.showVertical = YES;
         info.showHorizontal = NO;
         if(dirtX == YHChartAxisDirection_LeftToRight){

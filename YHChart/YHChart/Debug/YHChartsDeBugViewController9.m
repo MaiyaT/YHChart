@@ -18,6 +18,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    /**
+     坐标轴设计
+     
+     有设置最大值最小值 坐标轴 坐标轴则固定
+     */
+    
+    ..
+    
     
     UIView * contentView = [UIView new];
     [self.view addSubview:contentView];
@@ -36,14 +44,14 @@
     }
     [chartView updateAxisScaleList:scaleList width:40 position:(YHChartAxisPos_Bottom) dirction:(YHChartAxisDirection_LeftToRight)];
 
-
     [scaleList removeAllObjects];
     for(NSInteger i = 0; i < 11; i++){
         [scaleList addObject:[YHScaleItem att:YHHTitle(@(i).stringValue) value:i]];
     }
     [chartView updateAxisScaleList:scaleList width:30 position:(YHChartAxisPos_Left) dirction:(YHChartAxisDirection_BottomToTop)];
-
-    [chartView addReflineAxisPosition:(YHChartAxisPos_Left | YHChartAxisPos_Bottom | YHChartAxisPos_Right | YHChartAxisPos_Top) width:1 color:[UIColor yh_separator_dark] dotted:NO];
+    
+    //设置四边的轴的线条
+    [chartView addReflineAxisPosition:0xff width:1 color:[UIColor yh_separator] dotted:NO];
     
     
     [chartView addReflineAllAxisPos:YHChartAxisPos_Left config:^(YHReflineInfo * _Nonnull refline) {
