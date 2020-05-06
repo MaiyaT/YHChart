@@ -7,19 +7,22 @@
 //
 
 #import "YHBaseObject.h"
-
+#import "YHAxisFormatProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YHScaleItem : YHBaseObject
 
-@property (retain, nonatomic) NSMutableAttributedString * attString;
+@property (retain, nonatomic) NSAttributedString * attString;
 
 /// 该标题对应的数值
 @property (assign, nonatomic) CGFloat value;
 
-+ (instancetype)att:(NSMutableAttributedString *)att value:(CGFloat)value;
+/// 格式
+@property (weak, nonatomic) id <YHAxisFormatProtocol> format;
 
++ (instancetype)att:(NSAttributedString *)att value:(CGFloat)value;
++ (instancetype)value:(CGFloat)value;
 
 @end
 

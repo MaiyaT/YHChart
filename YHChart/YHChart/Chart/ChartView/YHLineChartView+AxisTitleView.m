@@ -1,15 +1,18 @@
 //
-//  YHLineChartView+ScaleTitleView.m
+//  YHLineChartView+AxisTitleView.m
 //  MoreCoin
 //
 //  Created by 林宁宁 on 2020/4/10.
 //  Copyright © 2020 MoreCoin. All rights reserved.
 //
 
-#import "YHLineChartView+ScaleTitleView.h"
+#import "YHLineChartView+AxisTitleView.h"
 #import <Masonry.h>
 
-@implementation YHLineChartView (ScaleTitleView)
+@implementation YHLineChartView (AxisTitleView)
+
+
+
 
 /// 更新刻度标题
 - (void)updateScaleInfoAtPosition:(YHChartAxisPos)position{
@@ -32,6 +35,7 @@
     BOOL isDeuce = axisInfo.isDeuceByScale;//坐标轴平分
     
 //    self.chartView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.1];
+    
     
     switch (position) {
         case YHChartAxisPos_Top:{
@@ -111,14 +115,14 @@
             //超出坐标轴的 刻度不显示
             continue;
         }
-        
+
         UILabel * titleLab = [UILabel new];
         titleLab.textAlignment = alignment;
         titleLab.attributedText = item.attString;
         titleLab.numberOfLines = 0;
         [labContent addSubview:titleLab];
-        
-        
+
+
         //该刻度在坐标中的长度
         CGFloat indexLength = ABS(item.value - originValue);
         CGFloat multipliedValue;
@@ -132,9 +136,9 @@
         }else{
             multipliedValue = indexLength/axisLength;
         }
-        
+
         multipliedValue = multipliedValue * 2;
-                
+
         [titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
             if(position == YHChartAxisPos_Top ||
                position == YHChartAxisPos_Bottom){
@@ -175,68 +179,6 @@
         }];
     }
 }
-
-///// X轴上 自动附加刻度标题
-//- (void)autoAddScaleInfoInAxisXByItem:(YHScaleItem *)scale isBottom:(BOOL)isBottom{
-//
-//    UIView * axisView = isBottom?self.axisInfo.axisBottom.titleView:self.axisInfo.axisTop.titleView;
-//    if(!axisView){
-//        return;
-//    }
-//
-//    NSMutableArray * axisScaleS = isBottom?self.axisInfo.axisBottom.list:self.axisInfo.axisTop.list;
-//    YHScaleItem * lastScale = axisScaleS.lastObject;
-//    if(!lastScale){
-//        return;
-//    }
-//
-//    if(scale.value < lastScale.value){
-//        return;
-//    }
-//
-//    //未超出坐标系
-//    if(scale.value < self.axisInfo.maxAxisX){
-//        return;
-//    }
-//
-//
-//    //新增刻度值 所在的位置
-//    CGFloat nextPosX = self.axisInfo.maxAxisX + self.axisInfo.axisStepX;
-//    if(lastScale.value > self.axisInfo.maxAxisX){
-//        nextPosX = lastScale.value + self.axisInfo.axisStepX;
-//    }
-//
-//    if(scale.value >= nextPosX){
-//        //新增 X轴 刻度
-//        UILabel * titleLab = [UILabel new];
-//        titleLab.textAlignment = NSTextAlignmentCenter;
-//        titleLab.attributedText = scale.attString;
-//        [axisView addSubview:titleLab];
-//
-//        //该刻度在坐标中的长度
-//        CGFloat indexLength = scale.value - self.axisInfo.minAxisX;
-//        CGFloat multipliedValue = indexLength/self.axisInfo.axisLengthX;
-//        multipliedValue = multipliedValue * 2;
-//
-//        [titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.centerX.equalTo(axisView).multipliedBy(MAX(0.001, multipliedValue));
-//            make.bottom.equalTo(axisView);
-//        }];
-//
-//        [axisScaleS addObject:scale];
-//    }
-//
-//    //重新设置该坐标的 宽度
-//    CGFloat disTotal = scale.value - self.axisInfo.maxAxisX;
-//
-//    [self.axisInfo.axisBottom.titleView mas_updateConstraints:^(MASConstraintMaker *make) {
-//        make.right.equalTo(self.chartView).offset(disTotal);
-//    }];
-//
-//    [UIView animateWithDuration:0 animations:^{
-//        self.axisInfo.axisBottom.titleView.transform = CGAffineTransformMakeTranslation(-disTotal, 0);
-//    }];
-//}
 
 
 @end

@@ -42,7 +42,7 @@
 		7AEC3A452456B023000EAA7D /* YHLineChartView+BarGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC3A3D2456B023000EAA7D /* YHLineChartView+BarGraph.m */; };
 		7AEC3A462456B023000EAA7D /* YHLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC3A3F2456B023000EAA7D /* YHLineChartView.m */; };
 		7AEC3A472456B023000EAA7D /* YHLineChartView+Refline.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC3A412456B023000EAA7D /* YHLineChartView+Refline.m */; };
-		7AEC3A482456B023000EAA7D /* YHLineChartView+ScaleTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC3A422456B023000EAA7D /* YHLineChartView+ScaleTitleView.m */; };
+		7AEC3A482456B023000EAA7D /* YHLineChartView+AxisTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC3A422456B023000EAA7D /* YHLineChartView+AxisTitleView.m */; };
 		7AEC3A4D2456B144000EAA7D /* YHBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC3A4C2456B144000EAA7D /* YHBaseView.m */; };
 		7AEC3A522456B19E000EAA7D /* UIColor+YH.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC3A4F2456B19E000EAA7D /* UIColor+YH.m */; };
 		7AEC3A532456B19E000EAA7D /* UIColor+YHStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC3A512456B19E000EAA7D /* UIColor+YHStyle.m */; };
@@ -93,6 +93,7 @@
 		7A4C6AD52459656D00FBD92A /* YHChartsDeBugViewController8.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHChartsDeBugViewController8.m; sourceTree = "<group>"; };
 		7A4C6AD72459657400FBD92A /* YHChartsDeBugViewController9.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHChartsDeBugViewController9.h; sourceTree = "<group>"; };
 		7A4C6AD82459657400FBD92A /* YHChartsDeBugViewController9.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHChartsDeBugViewController9.m; sourceTree = "<group>"; };
+		7ADCBD83246258D6001E8EBD /* YHAxisFormatProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHAxisFormatProtocol.h; sourceTree = "<group>"; };
 		7AEC39ED2456ADB4000EAA7D /* YHChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YHChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AEC39F02456ADB4000EAA7D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7AEC39F12456ADB4000EAA7D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -134,11 +135,11 @@
 		7AEC3A342456AFE9000EAA7D /* YHReflineInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHReflineInfo.h; sourceTree = "<group>"; };
 		7AEC3A352456AFE9000EAA7D /* YHAxisInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHAxisInfo.m; sourceTree = "<group>"; };
 		7AEC3A3D2456B023000EAA7D /* YHLineChartView+BarGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YHLineChartView+BarGraph.m"; sourceTree = "<group>"; };
-		7AEC3A3E2456B023000EAA7D /* YHLineChartView+ScaleTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YHLineChartView+ScaleTitleView.h"; sourceTree = "<group>"; };
+		7AEC3A3E2456B023000EAA7D /* YHLineChartView+AxisTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YHLineChartView+AxisTitleView.h"; sourceTree = "<group>"; };
 		7AEC3A3F2456B023000EAA7D /* YHLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHLineChartView.m; sourceTree = "<group>"; };
 		7AEC3A402456B023000EAA7D /* YHLineChartView+BarGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YHLineChartView+BarGraph.h"; sourceTree = "<group>"; };
 		7AEC3A412456B023000EAA7D /* YHLineChartView+Refline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YHLineChartView+Refline.m"; sourceTree = "<group>"; };
-		7AEC3A422456B023000EAA7D /* YHLineChartView+ScaleTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YHLineChartView+ScaleTitleView.m"; sourceTree = "<group>"; };
+		7AEC3A422456B023000EAA7D /* YHLineChartView+AxisTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YHLineChartView+AxisTitleView.m"; sourceTree = "<group>"; };
 		7AEC3A432456B023000EAA7D /* YHLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHLineChartView.h; sourceTree = "<group>"; };
 		7AEC3A442456B023000EAA7D /* YHLineChartView+Refline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YHLineChartView+Refline.h"; sourceTree = "<group>"; };
 		7AEC3A4B2456B144000EAA7D /* YHBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHBaseView.h; sourceTree = "<group>"; };
@@ -288,6 +289,7 @@
 				7AEC3A132456AF61000EAA7D /* YHLineConstants.m */,
 				7AEC3A152456AFA1000EAA7D /* YHAxisConvert.h */,
 				7AEC3A162456AFA1000EAA7D /* YHAxisConvert.m */,
+				7ADCBD83246258D6001E8EBD /* YHAxisFormatProtocol.h */,
 			);
 			path = Contants;
 			sourceTree = "<group>";
@@ -345,8 +347,8 @@
 				7AEC3A3D2456B023000EAA7D /* YHLineChartView+BarGraph.m */,
 				7AEC3A442456B023000EAA7D /* YHLineChartView+Refline.h */,
 				7AEC3A412456B023000EAA7D /* YHLineChartView+Refline.m */,
-				7AEC3A3E2456B023000EAA7D /* YHLineChartView+ScaleTitleView.h */,
-				7AEC3A422456B023000EAA7D /* YHLineChartView+ScaleTitleView.m */,
+				7AEC3A3E2456B023000EAA7D /* YHLineChartView+AxisTitleView.h */,
+				7AEC3A422456B023000EAA7D /* YHLineChartView+AxisTitleView.m */,
 			);
 			path = ChartView;
 			sourceTree = "<group>";
@@ -555,7 +557,7 @@
 				7AEC3A622456B534000EAA7D /* YHConstant.m in Sources */,
 				7AEC3A372456AFE9000EAA7D /* YHPointPickerConfig.m in Sources */,
 				7AEC3A382456AFE9000EAA7D /* YHLineChartItem.m in Sources */,
-				7AEC3A482456B023000EAA7D /* YHLineChartView+ScaleTitleView.m in Sources */,
+				7AEC3A482456B023000EAA7D /* YHLineChartView+AxisTitleView.m in Sources */,
 				7A4C6AC72459654100FBD92A /* YHChartsDeBugViewController3.m in Sources */,
 				7AEC3A472456B023000EAA7D /* YHLineChartView+Refline.m in Sources */,
 				7AEC3A032456ADB8000EAA7D /* main.m in Sources */,

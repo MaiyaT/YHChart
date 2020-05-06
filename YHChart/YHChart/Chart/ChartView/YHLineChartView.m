@@ -7,7 +7,7 @@
 //
 
 #import "YHLineChartView.h"
-#import "YHLineChartView+ScaleTitleView.h"
+#import "YHLineChartView+AxisTitleView.h"
 #import "YHLineChartView+BarGraph.h"
 
 #import "YHChartLineLayer.h"
@@ -97,6 +97,120 @@
                      dirction:dirction
                        config:nil];
 }
+
+- (void)updateAxisAutoScaleCount:(NSInteger)scaleCount
+                       pointList:(NSArray <YHLinePointItem *>*)pointList
+                          format:(id<YHAxisFormatProtocol>)format
+                           width:(CGFloat)width
+                        position:(YHChartAxisPos)position
+                        dirction:(YHChartAxisDirection)dirction
+                          config:(void(^_Nullable)(YHAxisElementInfo * axisInfo))config{
+    
+    BOOL isHorizontal = (dirction == YHChartAxisDirection_LeftToRight ||
+                       dirction == YHChartAxisDirection_RightToLeft);
+    CGFloat maxValue = 0, minValue = FLT_MAX;
+    for(YHLinePointItem * item in pointList){
+        if(isHorizontal){
+            maxValue = MAX(maxValue, item.valueX);
+            minValue = MIN(minValue, item.valueX);
+        }else{
+            maxValue = MAX(maxValue, item.valueY);
+            minValue = MIN(minValue, item.valueY);
+        }
+    }
+    CGFloat s = maxValue - minValue;
+    if(!isHorizontal){
+        maxValue = maxValue + s*0.1;
+        if(minValue >=0 ){
+            minValue = minValue - s*0.1;
+            minValue = MAX(minValue, 0);
+        }else{
+            minValue = minValue - s*0.1;
+        }
+    }
+    
+    
+    NSMutableArray * scaleList = [NSMutableArray new];
+    NSInteger n = scaleCount - 1;
+    if(scaleCount == 3 || scaleCount == 4 || scaleCount == 5){
+        n = 4;
+    }else if (scaleCount == 2 || scaleCount == 1){
+        n = scaleCount + 1;
+    }else if(scaleCount == 0){
+        n = 0;
+    }
+    
+    if(n > 0){
+        CGFloat mn = s/(n*1.0);
+        
+        NSInteger(^mnAdjuest)(NSInteger value) = ^NSInteger(NSInteger value) {
+            NSInteger mn_c = @(value).stringValue.length;
+            NSInteger pow_10 = pow(10, mn_c-1);
+            NSInteger mn_z = value/pow_10;
+            NSInteger mn_y = value%pow_10;
+            
+            NSInteger mn_1 = mn_z * pow_10;
+            NSInteger mn_2 = 0;
+            
+            CGFloat mn_m = mn_y/(mn_1 * 1.0);
+            if(mn_m > 0.4){
+                mn_2 = mn_1 * 0.5;
+            }
+            NSInteger newValue = mn_1 + mn_2;
+            return newValue;
+        };
+        
+        if(mn >= 1){
+            mn = mnAdjuest(ceil(mn));
+        }else if(mn > 0){
+            CGFloat mutil = mn * pow(10, 6) * 1.0;
+            mn = mnAdjuest(ceil(mutil));
+            mn = mn / mutil;
+        }else if (mn > -1){
+            CGFloat mutil = mn * pow(10, 6) * 1.0 * -1.0;
+            mn = mnAdjuest(ceil(mutil));
+            mn = mn / mutil;
+        }else{
+            mn = mnAdjuest(ceil(mn*-1.0)) * -1.0;
+        }
+        
+        if(scaleCount > 3){
+            YHScaleItem * item = [YHScaleItem new];
+            item.value = minValue;
+            item.format = format;
+            [scaleList addObject:item];
+        }
+        for(NSInteger i = 1; i < n; i++){
+            YHScaleItem * item = [YHScaleItem new];
+            item.value = mn*i;
+            item.format = format;
+            [scaleList addObject:item];
+        }
+        if(scaleCount > 4){
+            YHScaleItem * item = [YHScaleItem new];
+            item.value = maxValue;
+            item.format = format;
+            [scaleList addObject:item];
+        }
+    }
+    
+    [self updateAxisScaleList:scaleList
+                        width:width
+                     position:position
+                     dirction:dirction
+                       config:^(YHAxisElementInfo * _Nonnull axisInfo) {
+    
+        if(config){
+            config(axisInfo);
+        }
+        
+        axisInfo.isAutoScale = YES;
+        axisInfo.scaleCount = scaleCount;
+        axisInfo.maxValue = maxValue;
+        axisInfo.minValue = minValue;
+    }];
+}
+
 - (void)updateAxisScaleList:(NSArray <YHScaleItem *>*)scaleList
                       width:(CGFloat)width
                    position:(YHChartAxisPos)position

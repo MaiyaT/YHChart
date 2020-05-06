@@ -69,7 +69,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 如果宽度是0  则布局在坐标轴的内部
 @property (assign, nonatomic) CGFloat titleWidth;
 
-/// 坐标轴上的标题
+/// 坐标轴上的标题容器
 @property (retain, nonatomic) UIView * titleView;
 
 /// 坐标轴 线条颜色 #E9EBF0
@@ -84,22 +84,21 @@ NS_ASSUME_NONNULL_BEGIN
 /// 坐标轴的方向
 @property (assign, nonatomic) YHChartAxisDirection axisDirction;
 
-/// 坐标轴 原点 方向  
-//@property (assign, nonatomic) YHChartOriginCoorPos originCoorPos;
-
-
 @property (assign, nonatomic, readonly) BOOL isAxisX;
 @property (assign, nonatomic, readonly) BOOL isAxisY;
 
 /// 坐标轴长度
 @property (assign, nonatomic, readonly) CGFloat valueLength;
 
-/// 坐标轴 自动新增时候 自动添加新增的刻度标题 步数大小  默认 5
-@property (assign, nonatomic) CGFloat axisStep;
-
-
 /// 与另外一条 成坐标系的 轴信息  双X Y轴的时候引用
 @property (weak, nonatomic) YHAxisElementInfo * otherAxis;
+
+
+
+/// 自动设置坐标轴信息
+@property (assign, nonatomic) BOOL isAutoScale;
+/// 坐标轴显示几段 0 不显示
+@property (assign, nonatomic) NSInteger scaleCount;
 
 
 /// 新增点 里面做排序操作

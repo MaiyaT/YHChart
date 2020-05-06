@@ -1,5 +1,5 @@
 //
-//  YHLineChartView+ScaleTitleView.h
+//  YHLineChartView+AxisTitleView.h
 //  MoreCoin
 //
 //  Created by 林宁宁 on 2020/4/10.
@@ -13,13 +13,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /// 刻度标题
-@interface YHLineChartView (ScaleTitleView)
+@interface YHLineChartView (AxisTitleView)
 
 /// 更新刻度标题
 - (void)updateScaleInfoAtPosition:(YHChartAxisPos)position;
-/// X轴上 自动附加刻度标题
-//- (void)autoAddScaleInfoInAxisXByItem:(YHScaleItem *)scale isBottom:(BOOL)isBottom;
-
 
 @end
 

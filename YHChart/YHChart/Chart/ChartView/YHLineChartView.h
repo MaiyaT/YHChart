@@ -42,11 +42,21 @@ NS_ASSUME_NONNULL_BEGIN
                       width:(CGFloat)width
                    position:(YHChartAxisPos)position
                    dirction:(YHChartAxisDirection)dirction;
+
+- (void)updateAxisAutoScaleCount:(NSInteger)scaleCount
+                       pointList:(NSArray <YHLinePointItem *>*)pointList
+                          format:(id<YHAxisFormatProtocol>)format
+                           width:(CGFloat)width
+                        position:(YHChartAxisPos)position
+                        dirction:(YHChartAxisDirection)dirction
+                          config:(void(^_Nullable)(YHAxisElementInfo * axisInfo))config;
+
 - (void)updateAxisScaleList:(NSArray <YHScaleItem *>*)scaleList
                       width:(CGFloat)width
                    position:(YHChartAxisPos)position
                    dirction:(YHChartAxisDirection)dirction
                      config:(void(^_Nullable)(YHAxisElementInfo * axisInfo))config;
+
 
 /// 这个画布上新增一条折线
 - (void)addLineChart:(YHLineChartItem *)lineItem;

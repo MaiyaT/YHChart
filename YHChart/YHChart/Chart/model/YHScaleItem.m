@@ -10,12 +10,26 @@
 
 @implementation YHScaleItem
 
-+ (instancetype)att:(NSMutableAttributedString *)att value:(CGFloat)value{
++ (instancetype)att:(NSAttributedString *)att value:(CGFloat)value{
     YHScaleItem * item = [YHScaleItem new];
     item.attString = att;
     item.value = value;
     return item;
 }
++ (instancetype)value:(CGFloat)value{
+    YHScaleItem * item = [YHScaleItem new];
+    item.value = value;
+    return item;
+}
 
+-(NSAttributedString *)attString{
+    if(_attString){
+        return _attString;
+    }
+    if(self.format){
+        _attString = [self.format attributeStringFromValue:self.value];
+    }
+    return _attString;
+}
 
 @end
