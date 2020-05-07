@@ -9,6 +9,7 @@
 #import "YHLineChartView.h"
 #import "YHLineChartView+AxisTitleView.h"
 #import "YHLineChartView+BarGraph.h"
+#import "YHLineChartView+Refline.h"
 
 #import "YHChartLineLayer.h"
 #import "YHAxisConvert.h"
@@ -46,6 +47,9 @@
 
     self.axisInfo = [YHAxisInfo new];
     
+    self.reflineList = [NSMutableArray new];
+    self.reflineLayerList = [NSMutableArray new];
+    
     self.chartView = [UIView new];
     self.chartView.backgroundColor = [UIColor clearColor];
     [self addSubview:self.chartView];
@@ -53,8 +57,20 @@
         make.top.bottom.left.right.equalTo(self);
     }];
     
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rotateChange) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
 //    self.chartView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.05];
+}
+
+
+- (void)rotateChange{
+    
+    /// 重新渲染参考线
+    [self reRenderingReline];
+    
+    /// 重新渲染折线图
+    for(YHChartLineLayer * lineLayer in self.lineLayerList){
+        [lineLayer reRenderingLayer];
+    }
 }
 
 
@@ -100,7 +116,7 @@
 
 - (void)updateAxisAutoScaleCount:(NSInteger)scaleCount
                        pointList:(NSArray <YHLinePointItem *>*)pointList
-                          format:(id<YHAxisFormatProtocol>)format
+                          format:(id<YHAxisFormatProtocol> _Nullable)format
                            width:(CGFloat)width
                         position:(YHChartAxisPos)position
                         dirction:(YHChartAxisDirection)dirction
@@ -128,6 +144,7 @@
             minValue = minValue - s*0.1;
         }
     }
+    s = maxValue - minValue;
     
     
     NSMutableArray * scaleList = [NSMutableArray new];
@@ -153,8 +170,20 @@
             NSInteger mn_2 = 0;
             
             CGFloat mn_m = mn_y/(mn_1 * 1.0);
-            if(mn_m > 0.4){
+            if(mn_m > 0.8){
+                mn_2 = mn_1 * 0.8;
+            }
+            else if(mn_m > 0.55){
+                mn_2 = mn_1 * 0.6;
+            }
+            else if(mn_m > 0.45){
                 mn_2 = mn_1 * 0.5;
+            }
+            else if(mn_m > 0.4){
+                mn_2 = mn_1 * 0.4;
+            }
+            else if(mn_m > 0.2){
+                mn_2 = mn_1 * 0.2;
             }
             NSInteger newValue = mn_1 + mn_2;
             return newValue;
@@ -165,11 +194,11 @@
         }else if(mn > 0){
             CGFloat mutil = mn * pow(10, 6) * 1.0;
             mn = mnAdjuest(ceil(mutil));
-            mn = mn / mutil;
+            mn = mn / (pow(10, 6) * 1.0);
         }else if (mn > -1){
-            CGFloat mutil = mn * pow(10, 6) * 1.0 * -1.0;
+            CGFloat mutil = mn * pow(10, 6) * -1.0;
             mn = mnAdjuest(ceil(mutil));
-            mn = mn / mutil;
+            mn = mn / (pow(10, 6) * -1.0);
         }else{
             mn = mnAdjuest(ceil(mn*-1.0)) * -1.0;
         }
@@ -180,13 +209,17 @@
             item.format = format;
             [scaleList addObject:item];
         }
-        for(NSInteger i = 1; i < n; i++){
+        CGFloat posValue = minValue + mn;
+        while (posValue < (maxValue - mn*0.2)) {
             YHScaleItem * item = [YHScaleItem new];
-            item.value = mn*i;
+            item.value = posValue;
             item.format = format;
             [scaleList addObject:item];
+            
+            posValue = posValue + mn;
         }
-        if(scaleCount > 4){
+        if(maxValue > (posValue - mn*0.1) &&
+           scaleCount > 4){
             YHScaleItem * item = [YHScaleItem new];
             item.value = maxValue;
             item.format = format;
@@ -344,6 +377,13 @@
             [lineLayer randerAtView:self.chartView];
             break;
         }
+    }
+    
+    NSArray <YHLineChartItem *>* barCombineList = [self getBarCombineList];
+    for(YHLineChartItem * lineItem in barCombineList){
+        NSInteger index = [self.lineInfoList indexOfObject:lineItem];
+        YHChartLineLayer * lineLayer = self.lineLayerList[index];
+        [lineLayer reRenderingLayer];
     }
 }
 
@@ -543,6 +583,10 @@
     [self.chartView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.left.right.equalTo(self);
     }];
+}
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
 }
 
 @end

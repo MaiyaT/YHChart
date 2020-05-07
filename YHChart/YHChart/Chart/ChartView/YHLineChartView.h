@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)updateAxisAutoScaleCount:(NSInteger)scaleCount
                        pointList:(NSArray <YHLinePointItem *>*)pointList
-                          format:(id<YHAxisFormatProtocol>)format
+                          format:(id<YHAxisFormatProtocol> _Nullable)format
                            width:(CGFloat)width
                         position:(YHChartAxisPos)position
                         dirction:(YHChartAxisDirection)dirction

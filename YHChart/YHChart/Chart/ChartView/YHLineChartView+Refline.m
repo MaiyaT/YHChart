@@ -16,40 +16,61 @@
 
 @implementation YHLineChartView (Refline)
 
+//@dynamic reflineList;
 
 
 /// 添加所有 有设置Y轴的标题的参考线 先设置X 和 Y轴的刻度信息
 - (void)addReflineAllAxisPos:(YHChartAxisPos)position config:(void (^)(YHReflineInfo * _Nonnull))config{
     
-    YHAxisElementInfo * axisInfo = self.axisInfo.axisPos(position);
-    
-    for(YHScaleItem * item in axisInfo.list){
-        //最小值最大值不设置他的参考线
-        if(item.value <= axisInfo.minValue || item.value >= axisInfo.maxValue){
-            continue;
-        }
-        YHChartAxisDirection dirtX,dirtY;
+    void(^randerRefline)(YHChartAxisPos pos) = ^(YHChartAxisPos pos) {
         
-        YHReflineInfo * info = [YHReflineInfo new];
-        if(axisInfo.isAxisX){
-            info.showVertical = YES;
-            info.axisXValue = item.value;
-            dirtX = axisInfo.axisDirction;
-            dirtY = self.axisInfo.axisDirectionY;
-        }else{
-            info.showHorizontal = YES;
-            info.axisYValue = item.value;
-            dirtY = axisInfo.axisDirction;
-            dirtX = self.axisInfo.axisDirectionX;
+        YHAxisElementInfo * axisInfo = self.axisInfo.axisPos(pos);
+        
+        for(YHScaleItem * item in axisInfo.list){
+            //最小值最大值不设置他的参考线
+            if(item.value <= axisInfo.minValue || item.value >= axisInfo.maxValue){
+                continue;
+            }
+            YHChartAxisDirection dirtX,dirtY;
+            
+            YHReflineInfo * info = [YHReflineInfo new];
+            if(axisInfo.isAxisX){
+                info.showVertical = YES;
+                info.axisXValue = item.value;
+                dirtX = axisInfo.axisDirction;
+                dirtY = self.axisInfo.axisDirectionY;
+            }else{
+                info.showHorizontal = YES;
+                info.axisYValue = item.value;
+                dirtY = axisInfo.axisDirction;
+                dirtX = self.axisInfo.axisDirectionX;
+            }
+            info.isDotted = YES;
+            info.lineColor = [UIColor yh_title_h3_note];
+            info.lineHeight = 0.5;
+            if(config){
+                config(info);
+            }
+            [self addRefline:info dirtX:dirtX dirtY:dirtY];
         }
-        info.isDotted = YES;
-        info.lineColor = [UIColor yh_title_h3_note];
-        info.lineHeight = 0.5;
-        if(config){
-            config(info);
-        }
-        [self addRefline:info dirtX:dirtX dirtY:dirtY];
+    };
+    
+    if(position & YHChartAxisPos_Top){
+        randerRefline(YHChartAxisPos_Top);
     }
+    
+    if(position & YHChartAxisPos_Bottom){
+        randerRefline(YHChartAxisPos_Bottom);
+    }
+    
+    if(position & YHChartAxisPos_Left){
+        randerRefline(YHChartAxisPos_Left);
+    }
+    
+    if(position & YHChartAxisPos_Bottom){
+        randerRefline(YHChartAxisPos_Bottom);
+    }
+    
 }
 
 /// 添加X和Y四边的轴线
@@ -161,6 +182,8 @@
              dirtX:(YHChartAxisDirection)dirtX
              dirtY:(YHChartAxisDirection)dirtY{
     
+    [self.reflineList addObject:refline];
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         //添加参考线
         UIBezierPath * linePath;
@@ -202,11 +225,24 @@
             }
             reflineShapeLayer.path = linePath.CGPath;
             [self.chartView.layer insertSublayer:reflineShapeLayer atIndex:0];
+            
+            [self.reflineLayerList addObject:reflineShapeLayer];
         }
     });
 }
 
-
+/// 重新渲染参考线
+- (void)reRenderingReline{
+    NSMutableArray * listRefline = self.reflineList.mutableCopy;
+    
+    [self.reflineList removeAllObjects];
+    [self.reflineLayerList makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
+    [self.reflineLayerList removeAllObjects];
+    
+    for(YHReflineInfo * info in listRefline){
+        [self addRefline:info dirtX:self.axisInfo.axisDirectionX dirtY:self.axisInfo.axisDirectionY];
+    }
+}
 
 
 

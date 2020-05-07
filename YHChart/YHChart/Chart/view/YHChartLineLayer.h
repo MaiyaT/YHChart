@@ -38,6 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 更新所有图层 shape 样式
 - (void)updateLayersStyle;
 
+/// 重新渲染
+- (void)reRenderingLayer;
 
 - (void)clean;
 - (void)cleanPickerToast;

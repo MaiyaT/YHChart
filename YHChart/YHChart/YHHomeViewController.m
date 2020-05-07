@@ -126,33 +126,20 @@
     
     
     item = [YHCellItem new];
-    item.title = @"折线图横屏展开";
+    item.title = @"折线图屏幕旋转适配";
     [item setClickBlock:^(__kindof YHCellItem *passItem) {
-        
+        PushBlock(10,passItem.title);
     }];
     [self.dataList addObject:item];
     
-    item = [YHCellItem new];
-    item.title = @"折线图缩放";
-    [item setClickBlock:^(__kindof YHCellItem *passItem) {
-        
-    }];
-    [self.dataList addObject:item];
     
     item = [YHCellItem new];
     item.title = @"饼状图";
     [item setClickBlock:^(__kindof YHCellItem *passItem) {
-        
+        PushBlock(11,passItem.title);
     }];
     [self.dataList addObject:item];
     
-    
-    item = [YHCellItem new];
-    item.title = @"杂七杂八";
-    [item setClickBlock:^(__kindof YHCellItem *passItem) {
-        PushBlock(100,passItem.title);
-    }];
-    [self.dataList addObject:item];
 }
 
 

@@ -137,6 +137,11 @@
     });
 }
 
+/// 重新渲染
+- (void)reRenderingLayer{
+    [self randerAtView:self.renderView];
+}
+
 - (void)clean{
     
     [self.linePath removeAllPoints];

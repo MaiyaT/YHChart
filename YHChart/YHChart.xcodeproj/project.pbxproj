@@ -18,13 +18,15 @@
 		7A4C6AD32459656300FBD92A /* YHChartsDeBugViewController7.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4C6AD22459656300FBD92A /* YHChartsDeBugViewController7.m */; };
 		7A4C6AD62459656D00FBD92A /* YHChartsDeBugViewController8.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4C6AD52459656D00FBD92A /* YHChartsDeBugViewController8.m */; };
 		7A4C6AD92459657400FBD92A /* YHChartsDeBugViewController9.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4C6AD82459657400FBD92A /* YHChartsDeBugViewController9.m */; };
+		7ABD20B624639EB600202F6E /* YHChartsDeBugViewController10.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD20B524639EB600202F6E /* YHChartsDeBugViewController10.m */; };
+		7ABD20BC2463A8C700202F6E /* NSDecimalNumber+YH.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD20BB2463A8C700202F6E /* NSDecimalNumber+YH.m */; };
+		7ABD20C12463CA3700202F6E /* YHChartsDeBugViewController11.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD20C02463CA3700202F6E /* YHChartsDeBugViewController11.m */; };
 		7AEC39F22456ADB4000EAA7D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC39F12456ADB4000EAA7D /* AppDelegate.m */; };
 		7AEC39F52456ADB4000EAA7D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC39F42456ADB4000EAA7D /* SceneDelegate.m */; };
 		7AEC39FB2456ADB4000EAA7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AEC39F92456ADB4000EAA7D /* Main.storyboard */; };
 		7AEC39FD2456ADB8000EAA7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AEC39FC2456ADB8000EAA7D /* Assets.xcassets */; };
 		7AEC3A002456ADB8000EAA7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AEC39FE2456ADB8000EAA7D /* LaunchScreen.storyboard */; };
 		7AEC3A032456ADB8000EAA7D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC3A022456ADB8000EAA7D /* main.m */; };
-		7AEC3A0D2456AE4D000EAA7D /* YHChartsDeBugViewController100.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC3A0C2456AE4D000EAA7D /* YHChartsDeBugViewController100.m */; };
 		7AEC3A102456AEA1000EAA7D /* YHDebugMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC3A0F2456AEA1000EAA7D /* YHDebugMenu.m */; };
 		7AEC3A142456AF61000EAA7D /* YHLineConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC3A132456AF61000EAA7D /* YHLineConstants.m */; };
 		7AEC3A172456AFA1000EAA7D /* YHAxisConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC3A162456AFA1000EAA7D /* YHAxisConvert.m */; };
@@ -59,12 +61,6 @@
 		7AEC3A722456BD06000EAA7D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AEC3A6A2456B6CF000EAA7D /* CoreGraphics.framework */; };
 		7AEC3A742456BD11000EAA7D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AEC3A732456BD11000EAA7D /* QuartzCore.framework */; };
 		7AEC3A772456C176000EAA7D /* YHKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC3A762456C176000EAA7D /* YHKit.m */; };
-		7AF4347E245AC9E500677D69 /* YHDemoBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF4347D245AC9E500677D69 /* YHDemoBaseViewController.m */; };
-		7AF43481245AC9F800677D69 /* YHDemoViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF43480245AC9F800677D69 /* YHDemoViewController1.m */; };
-		7AF43484245ACA0300677D69 /* YHDemoViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF43483245ACA0300677D69 /* YHDemoViewController2.m */; };
-		7AF43487245ACA0B00677D69 /* YHDemoViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF43486245ACA0B00677D69 /* YHDemoViewController3.m */; };
-		7AF4348A245ACA1200677D69 /* YHDemoViewController4.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF43489245ACA1200677D69 /* YHDemoViewController4.m */; };
-		7AF4348D245ACA1900677D69 /* YHDemoViewController5.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF4348C245ACA1900677D69 /* YHDemoViewController5.m */; };
 		BFAA29274F37D19103CCA7AB /* libPods-YHChart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E37E43FFF18D3BA0B3C5ADA /* libPods-YHChart.a */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +89,12 @@
 		7A4C6AD52459656D00FBD92A /* YHChartsDeBugViewController8.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHChartsDeBugViewController8.m; sourceTree = "<group>"; };
 		7A4C6AD72459657400FBD92A /* YHChartsDeBugViewController9.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHChartsDeBugViewController9.h; sourceTree = "<group>"; };
 		7A4C6AD82459657400FBD92A /* YHChartsDeBugViewController9.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHChartsDeBugViewController9.m; sourceTree = "<group>"; };
+		7ABD20B424639EB600202F6E /* YHChartsDeBugViewController10.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHChartsDeBugViewController10.h; sourceTree = "<group>"; };
+		7ABD20B524639EB600202F6E /* YHChartsDeBugViewController10.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHChartsDeBugViewController10.m; sourceTree = "<group>"; };
+		7ABD20BA2463A8C700202F6E /* NSDecimalNumber+YH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDecimalNumber+YH.h"; sourceTree = "<group>"; };
+		7ABD20BB2463A8C700202F6E /* NSDecimalNumber+YH.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDecimalNumber+YH.m"; sourceTree = "<group>"; };
+		7ABD20BF2463CA3700202F6E /* YHChartsDeBugViewController11.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHChartsDeBugViewController11.h; sourceTree = "<group>"; };
+		7ABD20C02463CA3700202F6E /* YHChartsDeBugViewController11.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHChartsDeBugViewController11.m; sourceTree = "<group>"; };
 		7ADCBD83246258D6001E8EBD /* YHAxisFormatProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHAxisFormatProtocol.h; sourceTree = "<group>"; };
 		7AEC39ED2456ADB4000EAA7D /* YHChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YHChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AEC39F02456ADB4000EAA7D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -104,8 +106,6 @@
 		7AEC39FF2456ADB8000EAA7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7AEC3A012456ADB8000EAA7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AEC3A022456ADB8000EAA7D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7AEC3A0B2456AE4D000EAA7D /* YHChartsDeBugViewController100.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHChartsDeBugViewController100.h; sourceTree = "<group>"; };
-		7AEC3A0C2456AE4D000EAA7D /* YHChartsDeBugViewController100.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHChartsDeBugViewController100.m; sourceTree = "<group>"; };
 		7AEC3A0E2456AEA1000EAA7D /* YHDebugMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHDebugMenu.h; sourceTree = "<group>"; };
 		7AEC3A0F2456AEA1000EAA7D /* YHDebugMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHDebugMenu.m; sourceTree = "<group>"; };
 		7AEC3A122456AF61000EAA7D /* YHLineConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHLineConstants.h; sourceTree = "<group>"; };
@@ -167,18 +167,6 @@
 		7AEC3A732456BD11000EAA7D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7AEC3A752456C176000EAA7D /* YHKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHKit.h; sourceTree = "<group>"; };
 		7AEC3A762456C176000EAA7D /* YHKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHKit.m; sourceTree = "<group>"; };
-		7AF4347C245AC9E500677D69 /* YHDemoBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHDemoBaseViewController.h; sourceTree = "<group>"; };
-		7AF4347D245AC9E500677D69 /* YHDemoBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHDemoBaseViewController.m; sourceTree = "<group>"; };
-		7AF4347F245AC9F800677D69 /* YHDemoViewController1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHDemoViewController1.h; sourceTree = "<group>"; };
-		7AF43480245AC9F800677D69 /* YHDemoViewController1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHDemoViewController1.m; sourceTree = "<group>"; };
-		7AF43482245ACA0300677D69 /* YHDemoViewController2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHDemoViewController2.h; sourceTree = "<group>"; };
-		7AF43483245ACA0300677D69 /* YHDemoViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHDemoViewController2.m; sourceTree = "<group>"; };
-		7AF43485245ACA0B00677D69 /* YHDemoViewController3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHDemoViewController3.h; sourceTree = "<group>"; };
-		7AF43486245ACA0B00677D69 /* YHDemoViewController3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHDemoViewController3.m; sourceTree = "<group>"; };
-		7AF43488245ACA1200677D69 /* YHDemoViewController4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHDemoViewController4.h; sourceTree = "<group>"; };
-		7AF43489245ACA1200677D69 /* YHDemoViewController4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHDemoViewController4.m; sourceTree = "<group>"; };
-		7AF4348B245ACA1900677D69 /* YHDemoViewController5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHDemoViewController5.h; sourceTree = "<group>"; };
-		7AF4348C245ACA1900677D69 /* YHDemoViewController5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHDemoViewController5.m; sourceTree = "<group>"; };
 		C0A3EB53E48B2E7A0DF9CAC3 /* Pods-YHChart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YHChart.release.xcconfig"; path = "Target Support Files/Pods-YHChart/Pods-YHChart.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -224,7 +212,6 @@
 				7AEC3A492456B132000EAA7D /* Other */,
 				7AEC3A092456ADD1000EAA7D /* Chart */,
 				7AEC3A0A2456AE31000EAA7D /* Debug */,
-				7AF4347B245AC9CB00677D69 /* Demo */,
 				7AEC39F02456ADB4000EAA7D /* AppDelegate.h */,
 				7AEC39F12456ADB4000EAA7D /* AppDelegate.m */,
 				7AEC39F32456ADB4000EAA7D /* SceneDelegate.h */,
@@ -258,8 +245,6 @@
 				7AEC3A0F2456AEA1000EAA7D /* YHDebugMenu.m */,
 				7A4C6ABC245964F100FBD92A /* YHDebugBaseViewController.h */,
 				7A4C6ABD245964F100FBD92A /* YHDebugBaseViewController.m */,
-				7AEC3A0B2456AE4D000EAA7D /* YHChartsDeBugViewController100.h */,
-				7AEC3A0C2456AE4D000EAA7D /* YHChartsDeBugViewController100.m */,
 				7A4C6ABF2459653000FBD92A /* YHChartsDeBugViewController1.h */,
 				7A4C6AC02459653000FBD92A /* YHChartsDeBugViewController1.m */,
 				7A4C6AC22459653A00FBD92A /* YHChartsDeBugViewController2.h */,
@@ -278,6 +263,10 @@
 				7A4C6AD52459656D00FBD92A /* YHChartsDeBugViewController8.m */,
 				7A4C6AD72459657400FBD92A /* YHChartsDeBugViewController9.h */,
 				7A4C6AD82459657400FBD92A /* YHChartsDeBugViewController9.m */,
+				7ABD20B424639EB600202F6E /* YHChartsDeBugViewController10.h */,
+				7ABD20B524639EB600202F6E /* YHChartsDeBugViewController10.m */,
+				7ABD20BF2463CA3700202F6E /* YHChartsDeBugViewController11.h */,
+				7ABD20C02463CA3700202F6E /* YHChartsDeBugViewController11.m */,
 			);
 			path = Debug;
 			sourceTree = "<group>";
@@ -381,6 +370,8 @@
 				7AEC3A612456B534000EAA7D /* YHConstant.m */,
 				7AEC3A642456B628000EAA7D /* NSMutableAttributedString+YH.h */,
 				7AEC3A632456B628000EAA7D /* NSMutableAttributedString+YH.m */,
+				7ABD20BA2463A8C700202F6E /* NSDecimalNumber+YH.h */,
+				7ABD20BB2463A8C700202F6E /* NSDecimalNumber+YH.m */,
 				7AEC3A752456C176000EAA7D /* YHKit.h */,
 				7AEC3A762456C176000EAA7D /* YHKit.m */,
 			);
@@ -394,25 +385,6 @@
 				7AEC3A682456B63B000EAA7D /* YHCountDownTool.m */,
 			);
 			path = Timer;
-			sourceTree = "<group>";
-		};
-		7AF4347B245AC9CB00677D69 /* Demo */ = {
-			isa = PBXGroup;
-			children = (
-				7AF4347C245AC9E500677D69 /* YHDemoBaseViewController.h */,
-				7AF4347D245AC9E500677D69 /* YHDemoBaseViewController.m */,
-				7AF4347F245AC9F800677D69 /* YHDemoViewController1.h */,
-				7AF43480245AC9F800677D69 /* YHDemoViewController1.m */,
-				7AF43482245ACA0300677D69 /* YHDemoViewController2.h */,
-				7AF43483245ACA0300677D69 /* YHDemoViewController2.m */,
-				7AF43485245ACA0B00677D69 /* YHDemoViewController3.h */,
-				7AF43486245ACA0B00677D69 /* YHDemoViewController3.m */,
-				7AF43488245ACA1200677D69 /* YHDemoViewController4.h */,
-				7AF43489245ACA1200677D69 /* YHDemoViewController4.m */,
-				7AF4348B245ACA1900677D69 /* YHDemoViewController5.h */,
-				7AF4348C245ACA1900677D69 /* YHDemoViewController5.m */,
-			);
-			path = Demo;
 			sourceTree = "<group>";
 		};
 		B10A17BEFFB41708C89A9E5E /* Frameworks */ = {
@@ -534,11 +506,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ABD20C12463CA3700202F6E /* YHChartsDeBugViewController11.m in Sources */,
 				7A4C6ABE245964F100FBD92A /* YHDebugBaseViewController.m in Sources */,
-				7AF4347E245AC9E500677D69 /* YHDemoBaseViewController.m in Sources */,
 				7AEC3A462456B023000EAA7D /* YHLineChartView.m in Sources */,
 				7AEC3A3B2456AFE9000EAA7D /* YHAxisInfo.m in Sources */,
-				7AF4348D245ACA1900677D69 /* YHDemoViewController5.m in Sources */,
 				7A4C6AD02459655B00FBD92A /* YHChartsDeBugViewController6.m in Sources */,
 				7A4C6AC12459653000FBD92A /* YHChartsDeBugViewController1.m in Sources */,
 				7AEC3A592456B36A000EAA7D /* UIFont+YH.m in Sources */,
@@ -546,11 +517,9 @@
 				7AEC3A172456AFA1000EAA7D /* YHAxisConvert.m in Sources */,
 				7A4C6ABB2459643E00FBD92A /* YHHomeViewController.m in Sources */,
 				7AEC3A102456AEA1000EAA7D /* YHDebugMenu.m in Sources */,
-				7AF43484245ACA0300677D69 /* YHDemoViewController2.m in Sources */,
 				7AEC3A562456B226000EAA7D /* YHBaseObject.m in Sources */,
 				7A4C6ACD2459655300FBD92A /* YHChartsDeBugViewController5.m in Sources */,
 				7AEC3A452456B023000EAA7D /* YHLineChartView+BarGraph.m in Sources */,
-				7AF43487245ACA0B00677D69 /* YHDemoViewController3.m in Sources */,
 				7AEC3A4D2456B144000EAA7D /* YHBaseView.m in Sources */,
 				7AEC3A652456B629000EAA7D /* NSMutableAttributedString+YH.m in Sources */,
 				7AEC39F22456ADB4000EAA7D /* AppDelegate.m in Sources */,
@@ -574,15 +543,14 @@
 				7A4C6ACA2459654A00FBD92A /* YHChartsDeBugViewController4.m in Sources */,
 				7A4C6AD92459657400FBD92A /* YHChartsDeBugViewController9.m in Sources */,
 				7AEC3A3A2456AFE9000EAA7D /* YHReflineInfo.m in Sources */,
-				7AF43481245AC9F800677D69 /* YHDemoViewController1.m in Sources */,
+				7ABD20BC2463A8C700202F6E /* NSDecimalNumber+YH.m in Sources */,
 				7AEC3A522456B19E000EAA7D /* UIColor+YH.m in Sources */,
 				7AEC3A692456B63B000EAA7D /* YHCountDownTool.m in Sources */,
 				7A4C6AC42459653A00FBD92A /* YHChartsDeBugViewController2.m in Sources */,
-				7AF4348A245ACA1200677D69 /* YHDemoViewController4.m in Sources */,
 				7AEC3A142456AF61000EAA7D /* YHLineConstants.m in Sources */,
 				7AEC3A272456AFDD000EAA7D /* YHPointToastView.m in Sources */,
-				7AEC3A0D2456AE4D000EAA7D /* YHChartsDeBugViewController100.m in Sources */,
 				7AEC3A262456AFDD000EAA7D /* YHShapeLayer.m in Sources */,
+				7ABD20B624639EB600202F6E /* YHChartsDeBugViewController10.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

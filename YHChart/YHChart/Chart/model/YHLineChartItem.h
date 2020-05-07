@@ -16,6 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// 线条信息
 @interface YHLineChartItem : YHBaseObject
 
+
+/// 显示类型 默认为折线
+@property (assign, nonatomic) YHChartShowType showType;
+
+
 @property (retain, nonatomic) UIColor * lineColor;
 
 // 1
@@ -81,10 +86,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// 坐标轴 布局的方向 默认水平 做 在X轴方向上递增判断
 @property (assign, nonatomic) YHAxisType axisType;
 
-
-
-/// 显示类型 默认为折线
-@property (assign, nonatomic) YHChartShowType showType;
 
 
 /// ======= 针对柱状图Bar模式下使用

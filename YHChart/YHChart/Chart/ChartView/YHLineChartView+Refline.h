@@ -10,6 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@interface YHLineChartView()
+
+@property (retain, nonatomic) NSMutableArray <YHReflineInfo *>* reflineList;
+@property (retain, nonatomic) NSMutableArray <CAShapeLayer *>* reflineLayerList;
+
+@end
+
 @interface YHLineChartView (Refline)
  
 /// 添加参考线
@@ -21,6 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 添加X和Y四边的轴线
 - (void)addReflineAxisPosition:(YHChartAxisPos)position width:(CGFloat)width color:(UIColor *)color dotted:(BOOL)dot;
 
+
+/// 重新渲染参考线
+- (void)reRenderingReline;
 
 @end
 

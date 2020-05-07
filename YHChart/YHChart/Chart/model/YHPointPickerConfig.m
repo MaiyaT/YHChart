@@ -7,6 +7,7 @@
 //
 
 #import "YHPointPickerConfig.h"
+#import "UIColor+YHStyle.h"
 
 @implementation YHPointPickerConfig
 
@@ -17,8 +18,8 @@
     self.fillColor = [UIColor clearColor];
     self.lineColor = [UIColor clearColor];
     
-    self.reflineVColor = [UIColor clearColor];
-    self.reflineHColor = [UIColor clearColor];
+    self.reflineVColor = [UIColor yh_gray];
+    self.reflineHColor = [UIColor yh_gray];
 }
 
 @end
