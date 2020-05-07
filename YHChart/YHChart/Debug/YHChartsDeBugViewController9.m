@@ -8,7 +8,7 @@
 
 #import "YHChartsDeBugViewController9.h"
 
-@interface YHFormatDebug9 : NSObject<YHAxisFormatProtocol>
+@interface YHFormatDebug9 : NSObject<YHFormatProtocol>
 
 @end
 

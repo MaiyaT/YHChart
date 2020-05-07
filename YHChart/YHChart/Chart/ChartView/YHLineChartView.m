@@ -116,7 +116,7 @@
 
 - (void)updateAxisAutoScaleCount:(NSInteger)scaleCount
                        pointList:(NSArray <YHLinePointItem *>*)pointList
-                          format:(id<YHAxisFormatProtocol> _Nullable)format
+                          format:(id<YHFormatProtocol> _Nullable)format
                            width:(CGFloat)width
                         position:(YHChartAxisPos)position
                         dirction:(YHChartAxisDirection)dirction

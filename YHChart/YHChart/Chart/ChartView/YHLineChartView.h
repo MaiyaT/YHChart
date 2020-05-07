@@ -17,6 +17,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// 折线图 柱状图
 @interface YHLineChartView : YHBaseView
 
 
@@ -45,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)updateAxisAutoScaleCount:(NSInteger)scaleCount
                        pointList:(NSArray <YHLinePointItem *>*)pointList
-                          format:(id<YHAxisFormatProtocol> _Nullable)format
+                          format:(id<YHFormatProtocol> _Nullable)format
                            width:(CGFloat)width
                         position:(YHChartAxisPos)position
                         dirction:(YHChartAxisDirection)dirction

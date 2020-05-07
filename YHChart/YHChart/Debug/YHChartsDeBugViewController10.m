@@ -9,7 +9,7 @@
 #import "YHChartsDeBugViewController10.h"
 
 
-@interface YHChartsFormart10 : NSObject<YHAxisFormatProtocol>
+@interface YHChartsFormart10 : NSObject<YHFormatProtocol>
 
 @end
 @implementation YHChartsFormart10

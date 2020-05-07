@@ -7,7 +7,7 @@
 //
 
 #import "YHBaseObject.h"
-#import "YHAxisFormatProtocol.h"
+#import "YHFormatProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic) CGFloat value;
 
 /// 格式
-@property (weak, nonatomic) id <YHAxisFormatProtocol> format;
+@property (weak, nonatomic) id <YHFormatProtocol> format;
 
 + (instancetype)att:(NSAttributedString *)att value:(CGFloat)value;
 + (instancetype)value:(CGFloat)value;

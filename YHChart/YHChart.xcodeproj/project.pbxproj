@@ -21,6 +21,9 @@
 		7ABD20B624639EB600202F6E /* YHChartsDeBugViewController10.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD20B524639EB600202F6E /* YHChartsDeBugViewController10.m */; };
 		7ABD20BC2463A8C700202F6E /* NSDecimalNumber+YH.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD20BB2463A8C700202F6E /* NSDecimalNumber+YH.m */; };
 		7ABD20C12463CA3700202F6E /* YHChartsDeBugViewController11.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD20C02463CA3700202F6E /* YHChartsDeBugViewController11.m */; };
+		7ABD20C42463DFCC00202F6E /* YHPieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD20C32463DFCC00202F6E /* YHPieChartView.m */; };
+		7ABD20C72463E77D00202F6E /* YHPieChartItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD20C62463E77D00202F6E /* YHPieChartItem.m */; };
+		7ABD20CA2463EB5F00202F6E /* YHChartPieLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD20C92463EB5F00202F6E /* YHChartPieLayer.m */; };
 		7AEC39F22456ADB4000EAA7D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC39F12456ADB4000EAA7D /* AppDelegate.m */; };
 		7AEC39F52456ADB4000EAA7D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC39F42456ADB4000EAA7D /* SceneDelegate.m */; };
 		7AEC39FB2456ADB4000EAA7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AEC39F92456ADB4000EAA7D /* Main.storyboard */; };
@@ -95,7 +98,13 @@
 		7ABD20BB2463A8C700202F6E /* NSDecimalNumber+YH.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDecimalNumber+YH.m"; sourceTree = "<group>"; };
 		7ABD20BF2463CA3700202F6E /* YHChartsDeBugViewController11.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHChartsDeBugViewController11.h; sourceTree = "<group>"; };
 		7ABD20C02463CA3700202F6E /* YHChartsDeBugViewController11.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHChartsDeBugViewController11.m; sourceTree = "<group>"; };
-		7ADCBD83246258D6001E8EBD /* YHAxisFormatProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHAxisFormatProtocol.h; sourceTree = "<group>"; };
+		7ABD20C22463DFCC00202F6E /* YHPieChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHPieChartView.h; sourceTree = "<group>"; };
+		7ABD20C32463DFCC00202F6E /* YHPieChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHPieChartView.m; sourceTree = "<group>"; };
+		7ABD20C52463E77D00202F6E /* YHPieChartItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHPieChartItem.h; sourceTree = "<group>"; };
+		7ABD20C62463E77D00202F6E /* YHPieChartItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHPieChartItem.m; sourceTree = "<group>"; };
+		7ABD20C82463EB5F00202F6E /* YHChartPieLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHChartPieLayer.h; sourceTree = "<group>"; };
+		7ABD20C92463EB5F00202F6E /* YHChartPieLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHChartPieLayer.m; sourceTree = "<group>"; };
+		7ADCBD83246258D6001E8EBD /* YHFormatProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHFormatProtocol.h; sourceTree = "<group>"; };
 		7AEC39ED2456ADB4000EAA7D /* YHChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YHChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AEC39F02456ADB4000EAA7D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7AEC39F12456ADB4000EAA7D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -278,7 +287,7 @@
 				7AEC3A132456AF61000EAA7D /* YHLineConstants.m */,
 				7AEC3A152456AFA1000EAA7D /* YHAxisConvert.h */,
 				7AEC3A162456AFA1000EAA7D /* YHAxisConvert.m */,
-				7ADCBD83246258D6001E8EBD /* YHAxisFormatProtocol.h */,
+				7ADCBD83246258D6001E8EBD /* YHFormatProtocol.h */,
 			);
 			path = Contants;
 			sourceTree = "<group>";
@@ -289,8 +298,6 @@
 				7AEC3A1D2456AFDD000EAA7D /* layer */,
 				7AEC3A1B2456AFDD000EAA7D /* UIBezierPath+Smoothed.h */,
 				7AEC3A222456AFDD000EAA7D /* UIBezierPath+Smoothed.m */,
-				7AEC3A232456AFDD000EAA7D /* YHChartLineLayer.h */,
-				7AEC3A1A2456AFDD000EAA7D /* YHChartLineLayer.m */,
 				7AEC3A212456AFDD000EAA7D /* YHPointInfoView.h */,
 				7AEC3A1C2456AFDD000EAA7D /* YHPointInfoView.m */,
 				7AEC3A192456AFDD000EAA7D /* YHPointToastView.h */,
@@ -302,6 +309,10 @@
 		7AEC3A1D2456AFDD000EAA7D /* layer */ = {
 			isa = PBXGroup;
 			children = (
+				7ABD20C82463EB5F00202F6E /* YHChartPieLayer.h */,
+				7ABD20C92463EB5F00202F6E /* YHChartPieLayer.m */,
+				7AEC3A232456AFDD000EAA7D /* YHChartLineLayer.h */,
+				7AEC3A1A2456AFDD000EAA7D /* YHChartLineLayer.m */,
 				7AEC3A1E2456AFDD000EAA7D /* YHShapeLayer.m */,
 				7AEC3A1F2456AFDD000EAA7D /* YHShapeLayer.h */,
 			);
@@ -323,6 +334,8 @@
 				7AEC3A2E2456AFE9000EAA7D /* YHReflineInfo.m */,
 				7AEC3A312456AFE9000EAA7D /* YHScaleItem.h */,
 				7AEC3A2A2456AFE9000EAA7D /* YHScaleItem.m */,
+				7ABD20C52463E77D00202F6E /* YHPieChartItem.h */,
+				7ABD20C62463E77D00202F6E /* YHPieChartItem.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -338,6 +351,8 @@
 				7AEC3A412456B023000EAA7D /* YHLineChartView+Refline.m */,
 				7AEC3A3E2456B023000EAA7D /* YHLineChartView+AxisTitleView.h */,
 				7AEC3A422456B023000EAA7D /* YHLineChartView+AxisTitleView.m */,
+				7ABD20C22463DFCC00202F6E /* YHPieChartView.h */,
+				7ABD20C32463DFCC00202F6E /* YHPieChartView.m */,
 			);
 			path = ChartView;
 			sourceTree = "<group>";
@@ -517,6 +532,7 @@
 				7AEC3A172456AFA1000EAA7D /* YHAxisConvert.m in Sources */,
 				7A4C6ABB2459643E00FBD92A /* YHHomeViewController.m in Sources */,
 				7AEC3A102456AEA1000EAA7D /* YHDebugMenu.m in Sources */,
+				7ABD20C42463DFCC00202F6E /* YHPieChartView.m in Sources */,
 				7AEC3A562456B226000EAA7D /* YHBaseObject.m in Sources */,
 				7A4C6ACD2459655300FBD92A /* YHChartsDeBugViewController5.m in Sources */,
 				7AEC3A452456B023000EAA7D /* YHLineChartView+BarGraph.m in Sources */,
@@ -531,6 +547,7 @@
 				7AEC3A472456B023000EAA7D /* YHLineChartView+Refline.m in Sources */,
 				7AEC3A032456ADB8000EAA7D /* main.m in Sources */,
 				7AEC3A362456AFE9000EAA7D /* YHScaleItem.m in Sources */,
+				7ABD20CA2463EB5F00202F6E /* YHChartPieLayer.m in Sources */,
 				7AEC3A392456AFE9000EAA7D /* YHLinePointItem.m in Sources */,
 				7AEC39F52456ADB4000EAA7D /* SceneDelegate.m in Sources */,
 				7A4C6AD32459656300FBD92A /* YHChartsDeBugViewController7.m in Sources */,
@@ -541,6 +558,7 @@
 				7A4C6AD62459656D00FBD92A /* YHChartsDeBugViewController8.m in Sources */,
 				7AEC3A532456B19E000EAA7D /* UIColor+YHStyle.m in Sources */,
 				7A4C6ACA2459654A00FBD92A /* YHChartsDeBugViewController4.m in Sources */,
+				7ABD20C72463E77D00202F6E /* YHPieChartItem.m in Sources */,
 				7A4C6AD92459657400FBD92A /* YHChartsDeBugViewController9.m in Sources */,
 				7AEC3A3A2456AFE9000EAA7D /* YHReflineInfo.m in Sources */,
 				7ABD20BC2463A8C700202F6E /* NSDecimalNumber+YH.m in Sources */,
