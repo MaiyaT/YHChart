@@ -80,7 +80,7 @@
         item.filleColor = [UIColor yh_randomcolor];
         item.format = format;
         item.showAnnotation = YES;
-        item.showAnnotationInside = YES;
+//        item.showAnnotationInside = YES;
         [chartView addPercentPieBlock:item];
     }];
     

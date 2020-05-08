@@ -7,6 +7,9 @@
 //
 
 #import "YHChartPieLayer.h"
+#import <Masonry.h>
+#import "YHLineConstants.h"
+#import "UIColor+YHStyle.h"
 
 @interface YHChartPieLayer()
 
@@ -18,9 +21,19 @@
 /// 标签视图
 @property (retain, nonatomic) UILabel * annotationView;
 
+/// 跟标签的连线
+@property (retain, nonatomic) NSMutableArray <CAShapeLayer *>* annotationLinkLineList;
+
 @end
 
 @implementation YHChartPieLayer
+
+-(NSMutableArray<CAShapeLayer *> *)annotationLinkLineList{
+    if(!_annotationLinkLineList){
+        _annotationLinkLineList = [NSMutableArray new];
+    }
+    return _annotationLinkLineList;
+}
 
 /// 图层渲染到该 视图上
 - (void)randerPieAtView:(UIView *)renderView{
@@ -73,25 +86,98 @@
     [self.renderView.layer addSublayer:self.pieLayer];
     
     /// 该弧度上点的坐标
-    CGPoint(^CircleCorCenter)(CGFloat angle) = ^CGPoint(CGFloat angle) {
-        CGFloat x2 = radius*cosf(angle*M_PI/180);
-        CGFloat y2 = radius*sinf(angle*M_PI/180);
-        return CGPointMake(center.x+x2, center.y-y2);
+    CGPoint(^CircleCorCenter)(CGFloat angle, CGFloat radiusCor) = ^CGPoint(CGFloat angle, CGFloat radiusCor) {
+        int index = (angle)/M_PI_2;//用户区分在第几象限内
+        float needAngle = angle - index*M_PI_2;//用于计算正弦/余弦的角度
+        float x = 0,y = 0;
+        switch (index) {
+            case 0:
+                x = center.x + sinf(needAngle)*radiusCor;
+                y = center.y - cosf(needAngle)*radiusCor;
+                break;
+            case 1:
+                x = center.x + cosf(needAngle)*radiusCor;
+                y = center.y + sinf(needAngle)*radiusCor;
+                break;
+            case 2:
+                x = center.x - sinf(needAngle)*radiusCor;
+                y = center.y + cosf(needAngle)*radiusCor;
+                break;
+            case 3:
+                x = center.x - cosf(needAngle)*radiusCor;
+                y = center.y - sinf(needAngle)*radiusCor;
+                break;
+                
+            default:
+                break;
+        }
+        CGPoint centerPoint = CGPointMake(x, y);
+        return  centerPoint;
     };
+    
+    CGFloat(^GetAnnoDis)(CGRect annRect, BOOL isFarest) = ^CGFloat(CGRect annRect, BOOL isFarest) {
+        CGPoint p1 = CGPointMake(annRect.origin.x, annRect.origin.y);
+        CGPoint p2 = CGPointMake(CGRectGetMaxX(annRect), annRect.origin.y);
+        CGPoint p3 = CGPointMake(annRect.origin.x, CGRectGetMaxY(annRect));
+        CGPoint p4 = CGPointMake(CGRectGetMaxX(annRect), CGRectGetMaxY(annRect));
+        
+        CGFloat dis1 = YHPointDist(p1, center);
+        CGFloat dis2 = YHPointDist(p2, center);
+        CGFloat dis3 = YHPointDist(p3, center);
+        CGFloat dis4 = YHPointDist(p4, center);
+        NSArray * arr = @[@(dis1),@(dis2),@(dis3),@(dis4)];
+        if(isFarest){
+            return [[arr valueForKeyPath:@"@max.floatValue"] doubleValue];
+        }else{
+            return [[arr valueForKeyPath:@"@min.floatValue"] doubleValue];
+        }
+    };
+    
     if(pie.showAnnotation){
         if(!self.annotationView){
             self.annotationView = [UILabel new];
             self.annotationView.textAlignment = NSTextAlignmentCenter;
-            [self.renderView addSubview:self.annotationView];
+            [self.renderView.superview addSubview:self.annotationView];
         }
         self.annotationView.attributedText = pie.attString;
         
-        CGFloat angleCenter = startAngle + (endAngle - startAngle)*0.5 - M_PI_2;
-        CGPoint angleCenterPoint = CircleCorCenter(angleCenter);
+        CGFloat angleCenter = startAngle + (endAngle - startAngle)*0.5 + M_PI_2;
+        //在圆弧上的中心点
+        CGPoint angleCenterPoint = CircleCorCenter(angleCenter,radius*1);
         
-        self.annotationView.backgroundColor = [UIColor redColor];
-        self.annotationView.frame = CGRectMake(0, 0, 5, 5);
+        //先显示在这个中心点上
+        [self.annotationView sizeToFit];
+//        self.annotationView.frame = CGRectMake(0, 0, 5, 5);
         self.annotationView.center = angleCenterPoint;
+        
+        CGFloat offsetMax = GetAnnoDis(self.annotationView.frame, YES);
+        
+        //显示在内部 判断四顶点距离最远的往内移动
+        if(pie.showAnnotationInside){
+            CGFloat pRadius = offsetMax - radius;
+            pRadius = radius - pRadius*1.5;
+            CGPoint coorPoint = CircleCorCenter(angleCenter,pRadius);
+            self.annotationView.center = coorPoint;
+        }else{
+            CGFloat pRadius = offsetMax - radius;
+            CGFloat ppRadius = radius + ABS(pRadius*1.5);
+            CGPoint coorPoint = CircleCorCenter(angleCenter,ppRadius);
+            self.annotationView.center = coorPoint;
+            
+            ppRadius = GetAnnoDis(self.annotationView.frame, NO);
+            CGPoint coorPointB = CircleCorCenter(angleCenter,ppRadius);
+            UIBezierPath * path = [UIBezierPath bezierPath];
+            [path moveToPoint:angleCenterPoint];
+            [path addLineToPoint:coorPointB];
+            
+            CAShapeLayer * linkLine = [CAShapeLayer new];
+            linkLine.lineWidth = 0.5;
+            linkLine.strokeColor = [UIColor yh_black].CGColor;
+            linkLine.path = path.CGPath;
+            [self.renderView.layer addSublayer:linkLine];
+            
+            [self.annotationLinkLineList addObject:linkLine];
+        }
         
     }else{
         [self.annotationView removeFromSuperview];
@@ -108,6 +194,9 @@
     
     [self.annotationView removeFromSuperview];
     self.annotationView = nil;
+    
+    [self.annotationLinkLineList makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
+    [self.annotationLinkLineList removeAllObjects];
 }
 
 @end
